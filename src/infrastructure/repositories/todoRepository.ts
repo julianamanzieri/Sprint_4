@@ -10,6 +10,7 @@ export class TodoRepository {
 
   // Declara o método completeTask que recebe um taskId como parametro e procura uma tarefa no array e se encontra marca como concluida
   completeTask(taskId: string): void {
+    console.log('repository', taskId);
     const task = this.tasks.find((t) => t.id === taskId);
     if (task) {
       task.completed = true;

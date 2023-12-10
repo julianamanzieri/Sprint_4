@@ -10,6 +10,7 @@ const authenticationMiddleware = (
   const user = process.env.USER!;
   const key = process.env.PASSWORD!;
   const authHeader = req.headers.authorization;
+  console.log('authenticationMiddleware .env', user, key);
 
   // Verifica se existe um cabeçalho e divide a autorização em duas partes e decodifica as credenciais e as divide em nome de usuario e senha
   if (authHeader) {
@@ -19,6 +20,7 @@ const authenticationMiddleware = (
       const [username, password] = Buffer.from(credentials, 'base64')
         .toString('utf-8')
         .split(':');
+      console.log('authenticationMiddleware if', user, key);
 
       if (username === user && password === key) {
         next();

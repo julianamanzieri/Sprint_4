@@ -23,9 +23,12 @@ export class TaskController {
 
   // Marca tarfea como concluida e obtem o ID e se for bem sucessida envia a resposta corretamente
   completeTask(req: Request, res: Response): void {
+    console.log('llega a complete');
     try {
       const taskId = req.params.taskId;
+      console.log('taskid: ' + taskId);
       const success = this.taskService.completeTask(taskId);
+      console.log('controller', taskId);
 
       if (success) {
         res

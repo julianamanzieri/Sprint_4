@@ -27,6 +27,8 @@ export class TaskService {
   // Marca tarefa como concluida, encontra no repositorio e marca como concluida e se encontrada retonra true, senão retorna false
   completeTask(taskId: string): boolean {
     const task = this.todoRepository.getTasks().find((t) => t.id === taskId);
+    console.log('applications', task);
+    console.log(taskId);
     if (task) {
       task.completed = true;
       this.todoRepository.completeTask(taskId);
