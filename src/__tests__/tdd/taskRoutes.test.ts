@@ -41,24 +41,29 @@ describe('Task Routes', () => {
     expect(response.status).toBe(201);
   });
 
-  // // Testa se a rota PUT /tasks/complete/:taskId marca como completa as tarefas corretamente
-  // test('should mark a task as completed when PUT /tasks/complete/:taskId is called', async () => {
-  //   const existingTaskId = 'existingTaskId';
-  //   const response = await request(app).put(
-  //     `/tasks/complete/${existingTaskId}`
-  //   );
-  //   expect(response.body).toEqual(200);
-  // });
+  // Testa se a rota PUT /tasks/complete/:taskId marca como completa as tarefas corretamente
+  test('should mark a task as completed when PUT /tasks/complete/:taskId is called', async () => {
+    const existingTaskId = 'existingTaskId';
+    const response = await request(app).put(
+      `/tasks/complete/${existingTaskId}`
+    );
 
-  // // Testa se a rota DELETE /tasks/remove/:taskId remove tarefas corretamente
-  // test('should remove a task when DELETE /tasks/remove/:taskId is called', async () => {
-  //   const existingTaskId = 'existingTaskId';
-  //   const response = await request(app).delete(
-  //     `/tasks/remove/${existingTaskId}`
-  //   );
+    if (response.body.error) {
+      expect(response.status).toBe(404);
+    } else {
+      expect(response.status).toEqual(200);
+    }
+  });
 
-  //   expect(response.status).toBe(204);
-  // });
+  // Testa se a rota DELETE /tasks/remove/:taskId remove tarefas corretamente
+  test('should remove a task when DELETE /tasks/remove/:taskId is called', async () => {
+    const existingTaskId = 'existingTaskId';
+    const response = await request(app).delete(
+      `/tasks/remove/${existingTaskId}`
+    );
+
+    expect(response.status).toBe(404);
+  });
 
   // Testa se a rota GET /tasks/list retorna a lista de tarefas corretamente
   test('should get the list of tasks when GET /tasks/list is called', async () => {

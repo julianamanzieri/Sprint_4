@@ -48,7 +48,7 @@ export class TaskController {
     try {
       const taskId = req.params.taskId;
       const success = this.taskService.removeTask(taskId);
-
+      console.log('controllerremove', taskId, success);
       if (success) {
         res.status(204).send();
       } else {

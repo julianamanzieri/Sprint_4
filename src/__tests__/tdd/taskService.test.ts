@@ -66,7 +66,7 @@ describe('TaskService', () => {
       // // Verifica se a tarefa foi removida corretamente
       // expect(removed).toBe(true);
 
-      // Verifica se o método do repositório foi chamado corretamente
+      // // Verifica se o método do repositório foi chamado corretamente
       // expect(todoRepositoryMock.removeTask).toHaveBeenCalledWith(newTask.id);
 
       // Verifica se a tarefa não está mais na lista de tarefas do serviço

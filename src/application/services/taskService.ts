@@ -40,7 +40,7 @@ export class TaskService {
   // Remove uma tarefa e utiliza o método removeTask do TodoRepository para remover a tarefa
   removeTask(taskId: string): boolean {
     const removed = this.todoRepository.removeTask(taskId);
-
+    console.log('aplicationremove', removed);
     return removed;
   }
 
