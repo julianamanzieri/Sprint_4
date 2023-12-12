@@ -49,6 +49,37 @@ tsc
 
 Esto iniciará el servidor y lo pondrá a disposición en http://localhost:3000
 
+## API Endpoints
+
+- POST
+
+```
+POST /tasks/add: Add a new task to the list.
+Request Body: { "description": "Task description" }
+Response: 201 Created
+```
+
+- PUT
+
+```
+PUT /tasks/complete/:taskId: Mark a task as completed.
+Response: 200 OK if successful, 404 Not Found if the task is not found.
+```
+
+- DELETE
+
+```
+DELETE/tasks/remove/:taskId: Remove a task from the list.
+Response: 204 No Content if successful, 404 Not Found if the task is not found.
+```
+
+- GET
+
+```
+GET /tasks/list: Get the list of tasks.
+Response: 200 OK with the list of tasks.
+```
+
 ## Pruebas
 
 Este proyecto utiliza Jest para realizar pruebas.
